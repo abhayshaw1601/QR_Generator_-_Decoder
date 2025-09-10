@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator and Decoder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="logo">QR <span>Generator</span> & <span id="decoder">Decoder</span></div>
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+            <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </div>
+
+    <div class="about">
+        <p>This website allows you to easily generate QR codes and decode them. You can create QR codes
+            for links, text, or any data, and also upload a QR image to scan and read its contents.</p>
+    </div>
+
+    <div class="home">
+        <div class="generator card">
+            <h3>QR Code Generator</h3>
+            <select name="link" id="file-type">
+                <option value="" disabled selected>Choose a type of File</option>
+                <option value="url"> URL </option>
+                <option value="text"> Text </option>
+                <option value="file"> File </option>
+            </select>
+            <div id="response_gen"></div>
+            <button id="generate-button">Generate</button>
+            <div id="qr-output"></div>
+        </div>
+
+        <div class="decode card">
+            <h3>QR Code Decoder</h3>
+            <form id="uploadForm">
+                <div id="dropZone" class="drop-zone">
+                    Drag & Drop QR Image Here or Click to Upload
+                </div>
+                <input type="file" id="fileInput" name="qrfile" accept="image/*" style="display: none;">
+                <br><br>
+            </form>
+            <div class="decodebtn">
+                <button type="submit" id="decode-button">Decode</button>
+                <button type = "button" id="cam-button">Use Camera</button>
+            </div>
+            <div class="response_dec">
+                <div id="reader" style="width:300px; margin:20px auto;"></div>
+                <div id="scan-result" style="text-align:center; margin-top:10px; font-weight:bold;"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
